@@ -1,0 +1,12 @@
+#creates dataframe after accepting input from user
+#user inputs info regarding gender, weight, height, desired athletic goals, etc;
+#presents user with data when prompted
+
+import pandas as pd
+
+def user_stats():
+    pass
+
+def user_goals():
+    pass
+
