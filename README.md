@@ -1,2 +1,3 @@
 # FitnessTrackerApp
-program that tracks user fitness data in a dataframe and allows for dynamic editing and user input
+takes user input and stores it, includes info such as user physical metrics and fitness goals, also tracks them over time
+
