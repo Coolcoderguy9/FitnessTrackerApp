@@ -1,11 +1,14 @@
-#creates dataframe after accepting input from user
 #user inputs info regarding gender, weight, height, desired athletic goals, etc;
 #presents user with data when prompted
 
-import pandas as pd
+from flask import Flask, render_template, url_for
 
+app = Flask(__name__, template_folder = 'templates')
+app.static_folder = 'static'
+
+@app.route('/')
 def user_stats():
-    pass
+    return render_template('home.html')
 
 def user_goals():
     pass
