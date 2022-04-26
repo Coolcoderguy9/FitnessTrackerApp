@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}
+    FitnessPal Home
+{% endblock %}
+
+{% block content %}
+    <p>A tracking site for all your fitness goals and needs!</p>
+    <p>Simple and effective, try out our highly rated service for free!</p>
+{% endblock %}
