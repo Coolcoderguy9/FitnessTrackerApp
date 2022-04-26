@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" >
+</head>
+<title>
+    {% block title %}
+
+    {% endblock %}
+</title>
+<body>
+<nav class = "navbar navbar-dark bg-dark">
+    <a class = "navbar-brand" >FitnessPal</a>
+    <div class = "collapse navbar-collapse" id = "navbarNav">
+        <a class = "right" href = '{{ url_for("main") }}'>Home</a>
+        <a class = "right" href = '{{ url_for("user_stats") }}'>Stats</a>
+        <a class = "right" href = '{{ url_for("user_goals") }}'>Goals</a>
+        <a class = "right" href = '{{ url_for("login") }}'>Login</a>
+
+
+        
+    </div>
+</nav>
+
+<br>
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>
