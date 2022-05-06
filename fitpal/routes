@@ -1,5 +1,13 @@
 from fitpal import app
-from flask import render_template, url_for
+from flask import render_template, url_for, redirect, flash, get_flashed_messages
+from fitpal.forms import RegisterForm, LoginForm
+from fitpal.models import User
+from fitpal import db
+from flask_login import login_user
+
+# routes give direction to where the user is directed when links are clicked on
+# website intended to update dynamically when user inputs valid data through forms
+
 
 @app.route('/')
 def main():
@@ -13,6 +21,32 @@ def user_stats():
 def user_goals():
     return render_template('goals.html')
 
-@app.route('/login')
+@app.route('/login', methods = ['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    form = LoginForm()
+    if form.validate_on_submit():
+        attempted_user = User.query.filter_by(username = form.username.data).first()
+        if attempted_user and attempted_user.check_password_correction(
+                attempted_password=form.pswd.data
+        ):
+            login_user(attempted_user)
+            flash('Successfully logged in!', category = 'success')
+            return redirect(url_for('main'))
+        else:
+            flash('Username and password not matching, please retry.', category = 'danger')
+    return render_template('login.html', form = form)
+
+@app.route('/register', methods = ['GET', 'POST'])
+def register():
+    regform = RegisterForm()
+    if regform.validate_on_submit():
+        new_user = User(username = regform.username.data,
+                        email_address = regform.email_address.data,
+                        password_hsh = regform.pswd.data)
+        db.session.add(new_user)
+        db.session.commit()
+        return redirect(url_for('login'))
+    if regform.errors != {}:
+        for err_msg in regform.errors.values():
+            flash(f'There was an error with creating a user: {err_msg}', category = 'danger')
+    return render_template('register.html', regform = regform)
