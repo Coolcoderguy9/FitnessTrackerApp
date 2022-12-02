@@ -1,0 +1,42 @@
+body {
+    background-color:white;
+}
+
+h1 {
+    background-color: black;
+    color: lightgray;
+}
+
+p {
+    color:black;
+}
+
+table {
+    color: white;
+}
+
+.right {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.container {
+    align-items: center;
+}
+
+
+.img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+}
+
+.navbar-brand {
+    display: block;
+    padding: 8px;
+}

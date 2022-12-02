@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+    FitnessPal Register
+{% endblock %}
+
+{% block content %}
+<body class = 'text-center'>
+    <div class = 'container'>
+        <h1>Please Create Your Account</h1>
+        <form method = 'POST' class = 'form-register' style = 'color:white'>
+            {{ regform.hidden_tag() }}
+            
+            {{ regform.username.label() }}
+            {{ regform.username(class = 'form-control', placeholder = 'Username') }}
+            <br>
+            {{ regform.email_address.label() }}
+            {{ regform.email_address(class = 'form-control', placeholder = 'Email') }}
+            <br>
+            {{ regform.pswd.label() }}
+            {{ regform.pswd(class = 'form-control', placeholder = 'Password') }}
+            <br>
+            {{ regform.pswdcnfrm.label() }}
+            {{ regform.pswdcnfrm(class = 'form-control', placeholder = 'Confirm Password') }}
+            <br>
+            {{ regform.submit(class = 'btn btn-lg btn-block btn-primary') }}
+        </form>
+        <a class = "right" style="color:black" href = '{{ url_for("login") }}'>Already have an account?</a>
+    </div>
+</body>
+{% endblock %}
