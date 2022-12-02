@@ -1,8 +1,0 @@
-{% extends 'base.html' %}
-{% block title %}
-    FitnessPal Stats
-{% endblock %}
-
-{% block content %}
-    <p>These are the stats you currently have.</p>
-{% endblock %}
